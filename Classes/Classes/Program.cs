@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Classes
 {
@@ -7,6 +7,9 @@ namespace Classes
         static void Main(string[] args)
         {
             Coffemachine coffemachine = new Coffemachine();
+            coffemachine.width = 50;
+            coffemachine.heigth = 180;
+            coffemachine.depth = 60;
 
             bool isRunning = true;
             while(isRunning)
@@ -38,12 +41,12 @@ namespace Classes
                 }
                 Console.Clear();
             }
-            
         }
     }
 
     class Coffemachine
     {
+        public int depth;
         public int heigth;
         public int width;
         public int amountOfCoffeeInPercent;
@@ -69,6 +72,10 @@ namespace Classes
         {
             Console.WriteLine(currentAmountOfCoffee);
             Console.ReadKey();
+        }
+        public void DumbMathFormulasForFun(int depth, int width, int height)
+        {
+
         }
     }
     class PottedPlant
