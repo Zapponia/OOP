@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace Classes
 {
@@ -16,27 +17,32 @@ namespace Classes
             {
                 if (coffemachine.amountOfCoffeeInPercent < 15)
                 {
-                    coffemachine.amountOfCoffeeInPercent = coffemachine.FillMachine(coffemachine.amountOfCoffeeInPercent);
-                    Console.WriteLine(coffemachine.amountOfCoffeeInPercent);
+                    Console.WriteLine("You need to refill the machine, type in fill before you take a cup");
+                    Console.ReadKey();
                 }
 
                 if(coffemachine.buttonPressed)
                 {
-                    coffemachine.amountOfCoffeeInPercent = coffemachine.CupOfCoffee(coffemachine.amountOfCoffeeInPercent);
+                    coffemachine = coffemachine.CupOfCoffee(coffemachine);
                     coffemachine.buttonPressed = false;
                 }
+                Console.Clear();
                 Console.WriteLine("Do you want a cup of coffee? Then write coffee \n" +
                     "Do you want to know how much coffee is currently in the machine? Then write status \n" +
+                    "Do you want to fill up the machine? Then write fill \n" +
                     "");
                 string input = Console.ReadLine();
 
-                switch(input)
+                switch(input.ToLower())
                 {
                     case "coffee":
-                        coffemachine.buttonPressed = coffemachine.ButtonPress();
+                        coffemachine = coffemachine.ButtonPress(coffemachine);
                         break;
                     case "status":
-                        coffemachine.CurrentAmountOf(coffemachine.amountOfCoffeeInPercent);
+                        coffemachine.CurrentAmountOf(coffemachine);
+                        break;
+                    case "fill":
+                    coffemachine = coffemachine.FillMachine(coffemachine);
                         break;
                 }
                 Console.Clear();
@@ -46,36 +52,76 @@ namespace Classes
 
     class Coffemachine
     {
+        public int moneyInMachine;
+        public int priceOfCoffee = 5;
         public int depth;
         public int heigth;
         public int width;
         public int amountOfCoffeeInPercent;
         public bool buttonPressed = false;
 
-        public bool ButtonPress()
+
+        public Coffemachine ButtonPress(Coffemachine coffemachine)
         {
-            return true;
+            bool run = true;
+            while (run)
+            {
+                Console.WriteLine("Please insert 5 coins per cup of coffee you want:");
+                string input = Console.ReadLine();
+                try
+                {
+                    int money = Convert.ToInt32(input);
+                    coffemachine.moneyInMachine = money;
+                    Console.WriteLine("You have successfully entered {0} into the machine", money);
+                    Console.ReadKey();
+                    run = false;
+                    coffemachine.buttonPressed = true;
+                }
+                catch
+                {
+                    Console.WriteLine("Please insert real money \n" +
+                        "(Type a number)");
+                }
+            }
+          return coffemachine;
         }
 
-        public int CupOfCoffee(int cupOfCoffee)
+        public Coffemachine CupOfCoffee(Coffemachine coffemachine)
         {
-            Console.WriteLine("You have taken a cup of coffee");
-            cupOfCoffee = cupOfCoffee - 5;
-            return cupOfCoffee;
+            while (coffemachine.moneyInMachine > 5)
+            {
+                Console.Clear();
+                Console.WriteLine("You have taken a cup of coffee");
+                Console.ReadKey();
+                coffemachine.amountOfCoffeeInPercent = coffemachine.amountOfCoffeeInPercent - 5;
+                Console.Clear();
+                coffemachine.moneyInMachine = coffemachine.moneyInMachine - 5;
+                if (coffemachine.moneyInMachine < 5)
+                {
+                    coffemachine = coffemachine.PayMoneyBack(coffemachine);
+                }
+            }
+            return coffemachine;
         }
-        public int FillMachine(int currentAmountOfCoffee)
+        public Coffemachine PayMoneyBack(Coffemachine coffemachine)
         {
-            currentAmountOfCoffee = 100;
-            return currentAmountOfCoffee;
-        }
-        public void CurrentAmountOf(int currentAmountOfCoffee)
-        {
-            Console.WriteLine(currentAmountOfCoffee);
+            Console.WriteLine("You have {0} left, I will dispense them now", coffemachine.moneyInMachine);
             Console.ReadKey();
-        }
-        public void DumbMathFormulasForFun(int depth, int width, int height)
-        {
+            coffemachine.moneyInMachine = 0;
+            return coffemachine;
 
+        }
+
+        public Coffemachine FillMachine(Coffemachine coffemachine)
+        {
+            coffemachine.amountOfCoffeeInPercent = 100;
+            return coffemachine;
+        }
+
+        public void CurrentAmountOf(Coffemachine coffemachine)
+        {
+            Console.WriteLine("There is currently {0} percent of coffee in the machine", coffemachine.amountOfCoffeeInPercent);
+            Console.ReadKey();
         }
     }
     class PottedPlant
