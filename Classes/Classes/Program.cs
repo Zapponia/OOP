@@ -71,6 +71,49 @@ namespace Classes
             Console.ReadKey();
         }
     }
+    class engine
+    {
+        public string brand = Volvo;
+        public string primaryMaterial;
+        public int cylinders;
+        public double EngineCapacity;
+        public bool onStandWithWheel;
+        public bool fuelInEngine;
+        public bool engineRunning;
+
+        public engineStart()
+        {
+            if (fuelInEngine = true)
+            {
+                engineRunning = true;
+            }
+            else
+            {
+                engineRunning = false;
+            }
+        }
+        public void Movable()
+        {
+            
+        }
+        public void Stealable()
+        {
+
+        }
+        public void Brand()
+        {
+
+        }
+        public void Material()
+        {
+
+        }
+        public void NumberOfCylinders()
+        {
+
+
+        }
+    }
     class PottedPlant
     {
         public int numberOfLeaves;
