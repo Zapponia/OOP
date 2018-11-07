@@ -41,42 +41,7 @@ namespace Classes
 
                 while (pottedPlantIsRunning)
                 {
-                    PottedPlant pottedPlant = new PottedPlant();
-                    Console.Clear();
-                    bool isPottedPlantRunning = true;
-                    while(isPottedPlantRunning)
-                    {
-                        Console.WriteLine("What do you want to do? \n" +
-                            "If you want to look at the plant, write look \n" +
-                            "If you want to count the number of leaves, type count \n" +
-                            "If you want to see if the plant is real, type check \n" +
-                            "If you want to see if the POTTED plant is in a pot, type pot\n" +
-                            "If you want to water the plant, type water");
-                        input = Console.ReadLine();
 
-                        switch (input.ToLower())
-                        {
-                            case "look":
-                                pottedPlant.Lookatplant(); ;
-                                break;
-                            case "count":
-                                pottedPlant.CountNumberOfLeaves();
-                                break;
-                            case "check":
-                                pottedPlant.IsReal();
-                                break;
-                            case "pot":
-                                pottedPlant.IsInPot();
-                                break;
-                            case "water":
-                                pottedPlant.IsPlantWatered();
-                                break;
-                            default:
-                                Console.WriteLine("I'm sorry I don't understand");
-                                break;
-                        }
-                        Console.Clear();
-                    }
                 }
                 while (engineIsRunning)
                 {
@@ -299,10 +264,10 @@ namespace Classes
         public string brand = "Volvo";
         public int cylinders = 6;
         public double engineCapacity = 2.4;
-        public string onStandWithWheel = "yes";
+        public string onStandWithWheel;
         public bool fuelInEngine;
         public bool engineRunning;
-        public string input;
+        public string input = " ";
 
 
         public void FillWithFuel(Engine engine)
@@ -311,12 +276,10 @@ namespace Classes
             {
                 Console.WriteLine("You filled the engine with fuel");
                 fuelInEngine = true;
-                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("The engine is already filled with fuel");
-                Console.ReadKey();
             }
         }
 
@@ -327,35 +290,28 @@ namespace Classes
                 {
                     Console.WriteLine("Engine is running");
                     engineRunning = true;
-                    Console.ReadKey();
                 }
                 else
                 {
                     engineRunning = false;
                     Console.WriteLine("The engine needs fuel to start");
                     Console.ReadKey();
-                }   
+                }
+
+            
+            
         }
         public void Movable()
         {
 
             Console.WriteLine("Do you want to move the engine?");
-            input = Console.ReadLine();
-            if (input == "yes")
+            if (onStandWithWheel == "yes")
             {
                 Console.WriteLine("You can change the location of the engine using the wheels");
-                Console.ReadKey();
-                
-            }
-            else if(input == "no")
-            {
-                Console.WriteLine("You decide not to move the engine");
-                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine("That is not a valid answer. Please answer yes or no.");
-                Console.ReadKey();
+                Console.WriteLine("It is too heavy to move wihtout wheels. Go find some");
             }
         }
         public void NeedCleaning()
@@ -366,7 +322,6 @@ namespace Classes
         public void InformationAboutEngine()
         {
             Console.WriteLine("looking at the engine you see that its a " + cylinders + "cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
-            Console.ReadKey();
 
         }
     }
@@ -378,6 +333,7 @@ namespace Classes
         public bool isInPot;
         public string isPlantWatered;
 
+        bool pottedPlantIsRunning = true;
 
         public void Lookatplant()
         {
@@ -385,10 +341,10 @@ namespace Classes
             Console.ReadKey();
         }
 
-
+        
         public void CountNumberOfLeaves()
         {
-            Console.WriteLine("You look at the plant, and start counting the leaves: 1..2..3..4..5.. /n " +
+            Console.WriteLine("You look at the plant, and start counting the leaves: 1..2..3..4..5.. \n " +
                 "After counter for what feels like hours you determine the plant to have around " + numberOfLeaves);
             Console.ReadKey();
         }
@@ -412,7 +368,7 @@ namespace Classes
                 {
                     isReal = false;
                     checkIfReal = false;
-                    Console.WriteLine("You decide for yourself that the plant is fake, and move on with your life. /n" +
+                    Console.WriteLine("You decide for yourself that the plant is fake, and move on with your life. \n" +
                         "After a few weeks the plant has died. Horribly. I guess the plant was real after all. You spend the rest of the day mourning the plant");
                     Console.ReadKey();
                 }
@@ -430,23 +386,30 @@ namespace Classes
 
 
         public void IsPlantWatered()
-
         {
             Console.WriteLine("You look at the plant. The plant is very dry. Do you want to water it?");
             string input = Console.ReadLine();
             if (input == "yes")
             {
-                Console.WriteLine("You water the plant. The plant is now a little moist. Do you wanna continue to water the plant?");
+                Console.WriteLine("You water the plant. The plant is now a little moist. Do you want to continue to water the plant?");
                 input = Console.ReadLine();
                 if (input == "yes")
                 {
-                    Console.WriteLine("You water the plant once more. The plant is now soaked. Do you want to water the plant even further?");
+                    Console.WriteLine("You water the plant once more. The plant is now soaked. Do you really want to water the plant even further?");
                     input = Console.ReadLine();
                     if (input == "yes")
                     {
-                        Console.WriteLine("You poured all the water available on the plant. /n" +
+                        Console.WriteLine("You poured all the water available on the plant. \n" +
                             "The plant has now drowned, and your mom is angry because you spilled water on the floor");
                     }
+                    else if (input == "no")
+                    {
+                        Console.WriteLine("Good job, The plant certainly doesn't need more water at the moment. 10 points to Gryffindor!");
+                    }
+                }
+                else if (input == "no")
+                {
+                    Console.WriteLine("The plant could've used a little more water, but hey, atleast you watered it! Good for you");
                 }
             }
             else if (input == "no")
