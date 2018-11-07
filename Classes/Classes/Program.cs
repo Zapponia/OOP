@@ -276,6 +276,7 @@ namespace Classes
             else
             {
                 Console.WriteLine("The engine is already filled with fuel");
+                Console.ReadKey();
             }
         }
 
@@ -286,6 +287,7 @@ namespace Classes
                 {
                     Console.WriteLine("Engine is running");
                     engineRunning = true;
+                    Console.ReadKey();
                 }
                 else
                 {
