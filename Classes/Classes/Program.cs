@@ -54,8 +54,31 @@ namespace Classes
                             "If you want to see if the POTTED plant is in a pot, type pot\n" +
                             "If you want to water the plant, type water");
                         input = Console.ReadLine();
-
+                        switch (input.ToLower())
+                        {
+                            case "look":
+                                pottedPlant.Lookatplant(); ;
+                                break;
+                            case "count":
+                                pottedPlant.CountNumberOfLeaves();
+                                break;
+                            case "check":
+                                pottedPlant.IsReal();
+                                break;
+                            case "pot":
+                                pottedPlant.IsInPot();
+                                break;
+                            case "water":
+                                pottedPlant.IsPlantWatered();
+                                break;
+                            default:
+                                Console.WriteLine("I'm sorry I don't understand");
+                                break;
+                        }
+                        Console.Clear();
+                    }
                 }
+
                 while (engineIsRunning)
                 {
                     Console.Clear();
