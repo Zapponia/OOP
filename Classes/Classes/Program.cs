@@ -224,46 +224,61 @@ namespace Classes
             Console.ReadKey();
         }
     }
-    class engine
+    class Engine
     {
-        public string brand;
-        public string primaryMaterial;
-        public int cylinders;
-        public double EngineCapacity;
-        public bool onStandWithWheel;
+        public string brand = "Volvo";
+        public int cylinders = 6;
+        public double engineCapacity = 2.4;
+        public string onStandWithWheel;
         public bool fuelInEngine;
         public bool engineRunning;
+        public string input = " ";
 
-        public void engineStart()
+
+        public void EngineStart()
         {
-            if (fuelInEngine = true)
+            Console.WriteLine("What do you want to do with the engine?");
+            Console.WriteLine("1. Start it");
+            Console.WriteLine("2. move it to another location");
+            Console.WriteLine("3. inspect and clean it");
+            Console.WriteLine("4. Look for more information on the engine");
+
+            while (fuelInEngine == false)
             {
-                engineRunning = true;
+                if (fuelInEngine == true)
+                {
+                    Console.WriteLine("Engine is running");
+                    engineRunning = true;
+                }
+                else
+                {
+                    engineRunning = false;
+                    Console.WriteLine("The engine needs fuel to start");
+                }
             }
-            else
-            {
-                engineRunning = false;
-            }
+            
         }
         public void Movable()
         {
-            
+
+            Console.WriteLine("Do you want to moce the engine?");
+            if (onStandWithWheel == "yes")
+            {
+                Console.WriteLine("You can change the location of the engine using the wheels");
+            }
+            else
+            {
+                Console.WriteLine("It is too heavy to move wihtout wheels. Go find some");
+            }
         }
-        public void Stealable()
+        public void NeedCleaning()
         {
+            Console.WriteLine("the engine could use some cleaning");
 
         }
-        public void Brand()
+        public void InformationAboutEngine()
         {
-
-        }
-        public void Material()
-        {
-
-        }
-        public void NumberOfCylinders()
-        {
-
+            Console.WriteLine("looking at the engine you see that its a " + cylinders + "cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
 
         }
     }
@@ -296,5 +311,3 @@ namespace Classes
 
     }
 }
-
-
