@@ -83,6 +83,9 @@ namespace Classes
                 {
                     Console.Clear();
                     Engine engine = new Engine();
+                    engine.brand = "Volvo";
+                    engine.cylinders = 6;
+                    engine.engineCapacity = 2.4;
                     bool isEngineRunning = true;
                     while (isEngineRunning)
                     {
