@@ -54,6 +54,7 @@ namespace Classes
                             "If you want to start the engine write start \n" +
                             "If you want to move the engine write move \n" +
                             "If you want to see if the engine needs cleaning write clean \n" +
+                            "If you want to fill the engine with fuel write fuel \n" +
                             "If you want information about the engine write info");
                         input = Console.ReadLine();
 
@@ -67,6 +68,9 @@ namespace Classes
                                 break;
                             case "clean":
                                 engine.NeedCleaning();
+                                break;
+                            case "fuel":
+                                engine.FillWithFuel(engine);
                                 break;
                             case "info":
                                 engine.InformationAboutEngine();
