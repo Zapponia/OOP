@@ -41,7 +41,42 @@ namespace Classes
 
                 while (pottedPlantIsRunning)
                 {
+                    PottedPlant pottedPlant = new PottedPlant();
+                    Console.Clear();
+                    bool isPottedPlantRunning = true;
+                    while(isPottedPlantRunning)
+                    {
+                        Console.WriteLine("What do you want to do? \n" +
+                            "If you want to look at the plant, write look \n" +
+                            "If you want to count the number of leaves, type count \n" +
+                            "If you want to see if the plant is real, type check \n" +
+                            "If you want to see if the POTTED plant is in a pot, type pot\n" +
+                            "If you want to water the plant, type water");
+                        input = Console.ReadLine();
 
+                        switch (input.ToLower())
+                        {
+                            case "look":
+                                pottedPlant.Lookatplant(); ;
+                                break;
+                            case "count":
+                                pottedPlant.CountNumberOfLeaves();
+                                break;
+                            case "check":
+                                pottedPlant.IsReal();
+                                break;
+                            case "pot":
+                                pottedPlant.IsInPot();
+                                break;
+                            case "water":
+                                pottedPlant.IsPlantWatered();
+                                break;
+                            default:
+                                Console.WriteLine("I'm sorry I don't understand");
+                                break;
+                        }
+                        Console.Clear();
+                    }
                 }
                 while (engineIsRunning)
                 {
@@ -333,7 +368,6 @@ namespace Classes
         public bool isInPot;
         public string isPlantWatered;
 
-        bool pottedPlantIsRunning = true;
 
         public void Lookatplant()
         {
