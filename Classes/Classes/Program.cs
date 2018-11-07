@@ -42,6 +42,7 @@ namespace Classes
                 while (pottedPlantIsRunning)
                 {
                     PottedPlant pottedPlant = new PottedPlant();
+                    pottedPlant.numberOfLeaves = 127;
                     Console.Clear();
                     bool isPottedPlantRunning = true;
                     while(isPottedPlantRunning)
@@ -423,10 +424,10 @@ namespace Classes
 
 
         public void IsInPot()
-            {
+        {
             Console.WriteLine("This one surely is easy to see. The plant IS in a pot");
             Console.ReadKey();
-            }
+        }
 
 
         public void IsPlantWatered()
