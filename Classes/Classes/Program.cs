@@ -296,10 +296,10 @@ namespace Classes
     }
     class Engine
     {
-        public string brand = "Volvo";
-        public int cylinders = 6;
-        public double engineCapacity = 2.4;
-        public string onStandWithWheel = "yes";
+        public string brand ;
+        public int cylinders;
+        public double engineCapacity;
+        public string onStandWithWheel;
         public bool fuelInEngine;
         public bool engineRunning;
         public string input;
@@ -361,11 +361,12 @@ namespace Classes
         public void NeedCleaning()
         {
             Console.WriteLine("the engine could use some cleaning");
+            Console.ReadKey();
 
         }
         public void InformationAboutEngine()
         {
-            Console.WriteLine("looking at the engine you see that its a " + cylinders + "cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
+            Console.WriteLine("looking at the engine you see that its a " + cylinders + " cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
             Console.ReadKey();
 
         }
