@@ -429,7 +429,7 @@ namespace Classes
             public void Lookatplant()
             {
                 Console.Clear();
-                Console.WriteLine("You look at the potted plant. It is very beautiful... You think atleast");
+                Console.WriteLine("You look at the potted plant. It is very beautiful... You think atleast (Enter to continue)");
                 Console.ReadKey();
             }
 
@@ -438,7 +438,7 @@ namespace Classes
             {
                 Console.Clear();
                 Console.WriteLine("You look at the plant, and start counting the leaves: 1..2..3..4..5.. \n" +
-                    "After counting for what feels like hours you determine the plant to have around {0} leaves", numberOfLeaves);
+                    "After counting for what feels like hours you determine the plant to have around {0} leaves. (Enter to continue)", numberOfLeaves);
                 Console.ReadKey();
             }
 
@@ -455,7 +455,8 @@ namespace Classes
                     {
                         isReal = true;
                         checkIfReal = false;
-                        Console.WriteLine("You made up your mind, and decided the plant was real. You think to yourself (What am i doing with my life?)");
+                        Console.WriteLine("You made up your mind, and decided the plant was real. You think to yourself (What am i doing with my life?) \n" +
+                            "(Enter to continue)");
                         Console.ReadKey();
                     }
                     else if (input == "no")
@@ -464,10 +465,10 @@ namespace Classes
                         checkIfReal = false;
                         Console.WriteLine("You decide for yourself that the plant is fake, and move on with your life. \n" +
                             "After a few weeks the plant has died. Horribly. I guess the plant was real after all. \n" +
-                            "You spend the rest of the day mourning the plant");
+                            "You spend the rest of the day mourning the plant (Enter to continue)");
                         Console.ReadKey();
                     }
-                    else Console.WriteLine("You need to decide if the plant is real or not. You have a weird feeling that someone forces you to do it");
+                    else Console.WriteLine("You need to decide if the plant is real or not. You have a weird feeling that someone forces you to do it (Enter to continue)");
                     Console.ReadKey();
                 }
             }
@@ -476,7 +477,7 @@ namespace Classes
             public void IsInPot()
             {
                 Console.Clear();
-                Console.WriteLine("This one surely is easy to see. The plant IS in a pot");
+                Console.WriteLine("This one surely is easy to see. The plant IS in a pot (Enter to continue)");
                 Console.ReadKey();
             }
 
@@ -497,24 +498,24 @@ namespace Classes
                         if (input == "yes")
                         {
                             Console.WriteLine("You poured all the water available on the plant. \n" +
-                                "The plant has now drowned, and your mom is angry because you spilled water on the floor");
+                                "The plant has now drowned, and your mom is angry because you spilled water on the floor (Enter to continue)");
                             Console.ReadKey();
                         }
                         else if (input == "no")
                         {
-                            Console.WriteLine("Good job, The plant certainly doesn't need more water at the moment. 10 points to Gryffindor!");
+                            Console.WriteLine("Good job, The plant certainly doesn't need more water at the moment. 10 points to Gryffindor! (Enter to continue)");
                             Console.ReadKey();
                         }
                     }
                     else if (input == "no")
                     {
-                        Console.WriteLine("The plant could've used a little more water, but hey, atleast you watered it! Good for you");
+                        Console.WriteLine("The plant could've used a little more water, but hey, atleast you watered it! Good for you (Enter to continue)");
                         Console.ReadKey();
                     }
                 }
                 else if (input == "no")
                 {
-                    Console.WriteLine("You seriously dont appreciate plant life do you?");
+                    Console.WriteLine("You seriously dont appreciate plant life do you? (Enter to continue)");
                     Console.ReadKey();
                 }
             }
