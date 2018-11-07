@@ -340,12 +340,16 @@ namespace Classes
             Console.WriteLine("You look at the potted plant. It is very beautiful... You think atleast");
             Console.ReadKey();
         }
-        public void CountNumberOfLeaves(PottedPlant pottedPlant)
+
+
+        public void CountNumberOfLeaves()
         {
             Console.WriteLine("You look at the plant, and start counting the leaves: 1..2..3..4..5.. /n " +
                 "After counter for what feels like hours you determine the plant to have around " + numberOfLeaves);
             Console.ReadKey();
         }
+
+
         public void IsReal()
         {
             bool checkIfReal = true;
@@ -372,12 +376,17 @@ namespace Classes
                 Console.ReadKey();
             }
         }
+
+
         public void IsInPot()
             {
             Console.WriteLine("This one surely is easy to see. The plant IS in a pot");
             Console.ReadKey();
             }
+
+
         public void IsPlantWatered()
+
         {
             Console.WriteLine("You look at the plant. The plant is very dry. Do you want to water it?");
             string input = Console.ReadLine();
@@ -387,8 +396,18 @@ namespace Classes
                 input = Console.ReadLine();
                 if (input == "yes")
                 {
-                    Console.WriteLine("");
+                    Console.WriteLine("You water the plant once more. The plant is now soaked. Do you want to water the plant even further?");
+                    input = Console.ReadLine();
+                    if (input == "yes")
+                    {
+                        Console.WriteLine("You poured all the water available on the plant. /n" +
+                            "The plant has now drowned, and your mom is angry because you spilled water on the floor");
+                    }
                 }
+            }
+            else if (input == "no")
+            {
+                Console.WriteLine("You seriously dont appreciate plant life do you?");
             }
         }
     }
