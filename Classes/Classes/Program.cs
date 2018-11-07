@@ -60,7 +60,7 @@ namespace Classes
                         switch (input.ToLower())
                         {
                             case "start":
-                                engine.EngineStart();
+                                engine.EngineStart(engine);
                                 break;
                             case "move":
                                 engine.Movable();
@@ -266,16 +266,22 @@ namespace Classes
         public string input = " ";
 
 
-        public void EngineStart()
+        public void FillWithFuel(Engine engine)
         {
-            Console.WriteLine("What do you want to do with the engine?");
-            Console.WriteLine("1. Start it");
-            Console.WriteLine("2. move it to another location");
-            Console.WriteLine("3. inspect and clean it");
-            Console.WriteLine("4. Look for more information on the engine");
-
-            while (fuelInEngine == false)
+            if (fuelInEngine == false)
             {
+                Console.WriteLine("You filled the engine with fuel");
+                fuelInEngine = true;
+            }
+            else
+            {
+                Console.WriteLine("The engine is already filled with fuel");
+            }
+        }
+
+        public void EngineStart(Engine engine)
+        {
+            
                 if (fuelInEngine == true)
                 {
                     Console.WriteLine("Engine is running");
@@ -285,14 +291,16 @@ namespace Classes
                 {
                     engineRunning = false;
                     Console.WriteLine("The engine needs fuel to start");
+                    Console.ReadKey();
                 }
-            }
+
+            
             
         }
         public void Movable()
         {
 
-            Console.WriteLine("Do you want to moce the engine?");
+            Console.WriteLine("Do you want to move the engine?");
             if (onStandWithWheel == "yes")
             {
                 Console.WriteLine("You can change the location of the engine using the wheels");
