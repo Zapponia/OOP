@@ -89,11 +89,6 @@ namespace Classes
                     bool isEngineRunning = true;
                     while (isEngineRunning)
                     {
-                        Console.Clear();
-                        Engine engine = new Engine();
-                        bool isEngineRunning = true;
-                        while (isEngineRunning)
-                        {
                             Console.WriteLine("What do you want to do? \n" +
                                 "If you want to start the engine write start \n" +
                                 "If you want to move the engine write move \n" +
@@ -124,7 +119,7 @@ namespace Classes
                                     break;
                             }
                             Console.Clear();
-                        }
+                        
                     }
 
                     while (coffeeMachineIsRunning)
