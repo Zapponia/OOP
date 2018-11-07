@@ -41,7 +41,42 @@ namespace Classes
 
                 while (pottedPlantIsRunning)
                 {
+                    PottedPlant pottedPlant = new PottedPlant();
+                    Console.Clear();
+                    bool isPottedPlantRunning = true;
+                    while(isPottedPlantRunning)
+                    {
+                        Console.WriteLine("What do you want to do? \n" +
+                            "If you want to look at the plant, write look \n" +
+                            "If you want to count the number of leaves, type count \n" +
+                            "If you want to see if the plant is real, type check \n" +
+                            "If you want to see if the POTTED plant is in a pot, type pot\n" +
+                            "If you want to water the plant, type water");
+                        input = Console.ReadLine();
 
+                        switch (input.ToLower())
+                        {
+                            case "look":
+                                pottedPlant.Lookatplant(); ;
+                                break;
+                            case "count":
+                                pottedPlant.CountNumberOfLeaves();
+                                break;
+                            case "check":
+                                pottedPlant.IsReal();
+                                break;
+                            case "pot":
+                                pottedPlant.IsInPot();
+                                break;
+                            case "water":
+                                pottedPlant.IsPlantWatered();
+                                break;
+                            default:
+                                Console.WriteLine("I'm sorry I don't understand");
+                                break;
+                        }
+                        Console.Clear();
+                    }
                 }
                 while (engineIsRunning)
                 {
@@ -264,10 +299,10 @@ namespace Classes
         public string brand = "Volvo";
         public int cylinders = 6;
         public double engineCapacity = 2.4;
-        public string onStandWithWheel;
+        public string onStandWithWheel = "yes";
         public bool fuelInEngine;
         public bool engineRunning;
-        public string input = " ";
+        public string input;
 
 
         public void FillWithFuel(Engine engine)
@@ -276,10 +311,12 @@ namespace Classes
             {
                 Console.WriteLine("You filled the engine with fuel");
                 fuelInEngine = true;
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("The engine is already filled with fuel");
+                Console.ReadKey();
             }
         }
 
@@ -290,28 +327,35 @@ namespace Classes
                 {
                     Console.WriteLine("Engine is running");
                     engineRunning = true;
+                    Console.ReadKey();
                 }
                 else
                 {
                     engineRunning = false;
                     Console.WriteLine("The engine needs fuel to start");
                     Console.ReadKey();
-                }
-
-            
-            
+                }   
         }
         public void Movable()
         {
 
             Console.WriteLine("Do you want to move the engine?");
-            if (onStandWithWheel == "yes")
+            input = Console.ReadLine();
+            if (input == "yes")
             {
                 Console.WriteLine("You can change the location of the engine using the wheels");
+                Console.ReadKey();
+                
+            }
+            else if(input == "no")
+            {
+                Console.WriteLine("You decide not to move the engine");
+                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine("It is too heavy to move wihtout wheels. Go find some");
+                Console.WriteLine("That is not a valid answer. Please answer yes or no.");
+                Console.ReadKey();
             }
         }
         public void NeedCleaning()
@@ -322,6 +366,7 @@ namespace Classes
         public void InformationAboutEngine()
         {
             Console.WriteLine("looking at the engine you see that its a " + cylinders + "cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
+            Console.ReadKey();
 
         }
     }
@@ -333,7 +378,6 @@ namespace Classes
         public bool isInPot;
         public string isPlantWatered;
 
-        bool pottedPlantIsRunning = true;
 
         public void Lookatplant()
         {
