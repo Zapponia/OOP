@@ -299,10 +299,10 @@ namespace Classes
         public string brand = "Volvo";
         public int cylinders = 6;
         public double engineCapacity = 2.4;
-        public string onStandWithWheel;
+        public string onStandWithWheel = "yes";
         public bool fuelInEngine;
         public bool engineRunning;
-        public string input = " ";
+        public string input;
 
 
         public void FillWithFuel(Engine engine)
@@ -311,10 +311,12 @@ namespace Classes
             {
                 Console.WriteLine("You filled the engine with fuel");
                 fuelInEngine = true;
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("The engine is already filled with fuel");
+                Console.ReadKey();
             }
         }
 
@@ -325,28 +327,35 @@ namespace Classes
                 {
                     Console.WriteLine("Engine is running");
                     engineRunning = true;
+                    Console.ReadKey();
                 }
                 else
                 {
                     engineRunning = false;
                     Console.WriteLine("The engine needs fuel to start");
                     Console.ReadKey();
-                }
-
-            
-            
+                }   
         }
         public void Movable()
         {
 
             Console.WriteLine("Do you want to move the engine?");
-            if (onStandWithWheel == "yes")
+            input = Console.ReadLine();
+            if (input == "yes")
             {
                 Console.WriteLine("You can change the location of the engine using the wheels");
+                Console.ReadKey();
+                
+            }
+            else if(input == "no")
+            {
+                Console.WriteLine("You decide not to move the engine");
+                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine("It is too heavy to move wihtout wheels. Go find some");
+                Console.WriteLine("That is not a valid answer. Please answer yes or no.");
+                Console.ReadKey();
             }
         }
         public void NeedCleaning()
@@ -357,6 +366,7 @@ namespace Classes
         public void InformationAboutEngine()
         {
             Console.WriteLine("looking at the engine you see that its a " + cylinders + "cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
+            Console.ReadKey();
 
         }
     }
