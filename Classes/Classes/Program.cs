@@ -45,7 +45,38 @@ namespace Classes
                 }
                 while (engineIsRunning)
                 {
+                    Console.Clear();
+                    Engine engine = new Engine();
+                    bool isEngineRunning = true;
+                    while (isEngineRunning)
+                    {
+                        Console.WriteLine("What do you want to do? \n" +
+                            "If you want to start the engine write start \n" +
+                            "If you want to move the engine write move \n" +
+                            "If you want to see if the engine needs cleaning write clean \n" +
+                            "If you want information about the engine write info");
+                        input = Console.ReadLine();
 
+                        switch (input.ToLower())
+                        {
+                            case "start":
+                                engine.EngineStart();
+                                break;
+                            case "move":
+                                engine.Movable();
+                                break;
+                            case "clean":
+                                engine.NeedCleaning();
+                                break;
+                            case "info":
+                                engine.InformationAboutEngine();
+                                break;
+                            default:
+                                Console.WriteLine("I'm sorry I don't understand");
+                                break;
+                        }
+                        Console.Clear();
+                    }
                 }
 
                 while (coffeeMachineIsRunning)
