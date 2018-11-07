@@ -294,14 +294,57 @@ namespace Classes
 
         public void Lookatplant()
         {
-            while (pottedPlantIsRunning)
+            Console.WriteLine("You look at the potted plant. It is very beautiful... You think atleast");
+            Console.ReadKey();
+        }
+        public void CountNumberOfLeaves(PottedPlant pottedPlant)
+        {
+            Console.WriteLine("You look at the plant, and start counting the leaves: 1..2..3..4..5.. /n " +
+                "After counter for what feels like hours you determine the plant to have around " + numberOfLeaves);
+            Console.ReadKey();
+        }
+        public void IsReal()
+        {
+            bool checkIfReal = true;
+            while (checkIfReal)
             {
-                string userInput = Console.ReadLine();
-                switch (userInput)
+                Console.WriteLine("You're having a hard time trying to figure out if the plant is real or not. Do you think it's real?");
+                string input = Console.ReadLine();
+                if (input == "yes")
                 {
-                    case "look":
-                        Console.WriteLine("You look at the potted plant. It is very beautiful... You think atleast");
-                        break;
+                    isReal = true;
+                    checkIfReal = false;
+                    Console.WriteLine("You made up your mind, and decided the plant was real. You think to yourself (What am i doing with my life?)");
+                    Console.ReadKey();
+                }
+                else if (input == "no")
+                {
+                    isReal = false;
+                    checkIfReal = false;
+                    Console.WriteLine("You decide for yourself that the plant is fake, and move on with your life. /n" +
+                        "After a few weeks the plant has died. Horribly. I guess the plant was real after all. You spend the rest of the day mourning the plant");
+                    Console.ReadKey();
+                }
+                else Console.WriteLine("You need to decide if the plant is real or not. You have a weird feeling that someone forces you to do it");
+                Console.ReadKey();
+            }
+        }
+        public void IsInPot()
+            {
+            Console.WriteLine("This one surely is easy to see. The plant IS in a pot");
+            Console.ReadKey();
+            }
+        public void IsPlantWatered()
+        {
+            Console.WriteLine("You look at the plant. The plant is very dry. Do you want to water it?");
+            string input = Console.ReadLine();
+            if (input == "yes")
+            {
+                Console.WriteLine("You water the plant. The plant is now a little moist. Do you wanna continue to water the plant?");
+                input = Console.ReadLine();
+                if (input == "yes")
+                {
+                    Console.WriteLine("");
                 }
             }
         }
