@@ -89,37 +89,37 @@ namespace Classes
                     bool isEngineRunning = true;
                     while (isEngineRunning)
                     {
-                            Console.WriteLine("What do you want to do? \n" +
-                                "If you want to start the engine write start \n" +
-                                "If you want to move the engine write move \n" +
-                                "If you want to see if the engine needs cleaning write clean \n" +
-                                "If you want to fill the engine with fuel write fuel \n" +
-                                "If you want information about the engine write info");
-                            input = Console.ReadLine();
+                        Console.WriteLine("What do you want to do? \n" +
+                            "If you want to start the engine write start \n" +
+                            "If you want to move the engine write move \n" +
+                            "If you want to see if the engine needs cleaning write clean \n" +
+                            "If you want to fill the engine with fuel write fuel \n" +
+                            "If you want information about the engine write info");
+                        input = Console.ReadLine();
 
-                            switch (input.ToLower())
-                            {
-                                case "start":
-                                    engine.EngineStart(engine);
-                                    break;
-                                case "move":
-                                    engine.Movable();
-                                    break;
-                                case "clean":
-                                    engine.NeedCleaning();
-                                    break;
-                                case "fuel":
-                                    engine.FillWithFuel(engine);
-                                    break;
-                                case "info":
-                                    engine.InformationAboutEngine();
-                                    break;
-                                default:
-                                    Console.WriteLine("I'm sorry I don't understand");
-                                    break;
-                            }
-                            Console.Clear();
-                        
+                        switch (input.ToLower())
+                        {
+                            case "start":
+                                engine.EngineStart(engine);
+                                break;
+                            case "move":
+                                engine.Movable();
+                                break;
+                            case "clean":
+                                engine.NeedCleaning();
+                                break;
+                            case "fuel":
+                                engine.FillWithFuel(engine);
+                                break;
+                            case "info":
+                                engine.InformationAboutEngine();
+                                break;
+                            default:
+                                Console.WriteLine("I'm sorry I don't understand");
+                                break;
+                        }
+                        Console.Clear();
+
                     }
 
                     while (coffeeMachineIsRunning)
@@ -171,6 +171,57 @@ namespace Classes
                             }
                             Console.Clear();
                         }
+                    }
+                }
+
+                while (coffeeMachineIsRunning)
+                {
+                    Coffemachine coffemachine = new Coffemachine();
+                    coffemachine.width = 50;
+                    coffemachine.heigth = 180;
+                    coffemachine.depth = 60;
+                    coffemachine.priceOfCoffee = 5;
+
+                    bool isRunningCM = true;
+                    while (isRunningCM)
+                    {
+                        if (coffemachine.amountOfCoffeeInPercent < 15)
+                        {
+                            Console.WriteLine("You need to refill the machine, type in fill before you take a cup");
+                            Console.ReadKey();
+                        }
+
+                        if (coffemachine.buttonPressed)
+                        {
+                            coffemachine = coffemachine.CupOfCoffee(coffemachine);
+                            coffemachine.buttonPressed = false;
+                        }
+                        Console.Clear();
+                        Console.WriteLine("Do you want a cup of coffee? Then write coffee \n" +
+                            "Do you want to know how much coffee is currently in the machine? Then write status \n" +
+                            "Do you want to fill up the machine? Then write fill \n" +
+                            "");
+                        input = Console.ReadLine();
+
+                        switch (input.ToLower())
+                        {
+                            case "coffee":
+                                coffemachine = coffemachine.ButtonPress(coffemachine);
+                                break;
+                            case "status":
+                                coffemachine.CurrentAmountOfCoffee(coffemachine);
+                                break;
+                            case "fill":
+                                coffemachine = coffemachine.FillMachine(coffemachine);
+                                break;
+                            case "hit":
+                                coffemachine.Hit();
+                                break;
+                            default:
+                                Console.WriteLine("I'm sorry I didn't understand that. Please try again.");
+                                break;
+                        }
+                        Console.Clear();
                     }
                 }
             }
