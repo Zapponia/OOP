@@ -41,6 +41,19 @@ namespace Classes
 
                 while (pottedPlantIsRunning)
                 {
+                    PottedPlant pottedPlant = new PottedPlant();
+                    pottedPlant.numberOfLeaves = 127;
+                    Console.Clear();
+                    bool isPottedPlantRunning = true;
+                    while(isPottedPlantRunning)
+                    {
+                        Console.WriteLine("What do you want to do? \n" +
+                            "If you want to look at the plant, write look \n" +
+                            "If you want to count the number of leaves, type count \n" +
+                            "If you want to see if the plant is real, type check \n" +
+                            "If you want to see if the POTTED plant is in a pot, type pot\n" +
+                            "If you want to water the plant, type water");
+                        input = Console.ReadLine();
 
                 }
                 while (engineIsRunning)
@@ -261,9 +274,9 @@ namespace Classes
     }
     class Engine
     {
-        public string brand = "Volvo";
-        public int cylinders = 6;
-        public double engineCapacity = 2.4;
+        public string brand ;
+        public int cylinders;
+        public double engineCapacity;
         public string onStandWithWheel;
         public bool fuelInEngine;
         public bool engineRunning;
@@ -317,11 +330,13 @@ namespace Classes
         public void NeedCleaning()
         {
             Console.WriteLine("the engine could use some cleaning");
+            Console.ReadKey();
 
         }
         public void InformationAboutEngine()
         {
-            Console.WriteLine("looking at the engine you see that its a " + cylinders + "cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
+            Console.WriteLine("looking at the engine you see that its a " + cylinders + " cylinders, " + engineCapacity + " liters " + "and its made by " + brand);
+            Console.ReadKey();
 
         }
     }
@@ -379,10 +394,10 @@ namespace Classes
 
 
         public void IsInPot()
-            {
+        {
             Console.WriteLine("This one surely is easy to see. The plant IS in a pot");
             Console.ReadKey();
-            }
+        }
 
 
         public void IsPlantWatered()
