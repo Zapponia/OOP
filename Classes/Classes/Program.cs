@@ -73,7 +73,7 @@ namespace Classes
     }
     class engine
     {
-        public string brand = Volvo;
+        public string brand;
         public string primaryMaterial;
         public int cylinders;
         public double EngineCapacity;
@@ -81,7 +81,7 @@ namespace Classes
         public bool fuelInEngine;
         public bool engineRunning;
 
-        public engineStart()
+        public void engineStart()
         {
             if (fuelInEngine = true)
             {
