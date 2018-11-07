@@ -8,21 +8,44 @@ namespace Classes
         static void Main(string[] args)
         {
             bool coffeeMachineIsRunning = false;
+            bool pottedPlantIsRunning = false;
+            bool engineIsRunning = false;
             bool isRunning = true;
             while (isRunning)
             {
-                Console.WriteLine("To enter the coffee machine type cm \n" +
-                    "");
+                Console.WriteLine("To enter the coffee machine, type cm \n" +
+                    "To enter the potted plant, type pp \n" +
+                    "To enter the engine, type e \n" +
+                    "Or type exit to quit");
                 string input = Console.ReadLine();
-                switch(input)
+                switch(input.ToLower())
                 {
                     case "cm":
                         coffeeMachineIsRunning = true;
                         break;
+                    case "pp":
+                        pottedPlantIsRunning = true;
+                        break;
+                    case "e":
+                        engineIsRunning = true;
+                        break;
+                    case "exit":
+                        isRunning = false;
+                        break;
+                    default:
+                        Console.WriteLine("I didn't understand, please try again.");
+                        break;
                 }
 
 
+                while (pottedPlantIsRunning)
+                {
 
+                }
+                while (engineIsRunning)
+                {
+
+                }
 
                 while (coffeeMachineIsRunning)
                 {
@@ -62,6 +85,12 @@ namespace Classes
                                 break;
                             case "fill":
                                 coffemachine = coffemachine.FillMachine(coffemachine);
+                                break;
+                            case "hit":
+                                coffemachine.Hit();
+                                break;
+                            default:
+                                Console.WriteLine("I'm sorry I didn't understand that. Please try again.");
                                 break;
                         }
                         Console.Clear();
