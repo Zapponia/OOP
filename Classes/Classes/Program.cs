@@ -236,25 +236,21 @@ namespace Classes
         public bool isInPot;
         public string isPlantWatered;
 
+        bool pottedPlantIsRunning = true;
 
         public void Lookatplant()
         {
-
+            while (pottedPlantIsRunning)
+            {
+                string userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "look":
+                        Console.WriteLine("You look at the potted plant. It is very beautiful... You think atleast");
+                        break;
+                }
+            }
         }
-        public void Photosynthesis()
-        {
-
-        }
-        public void Removeleaves()
-        {
-
-        }
-        public void Waterplant()
-        {
-
-        }
-
-
     }
 }
 
